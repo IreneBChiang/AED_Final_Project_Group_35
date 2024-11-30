@@ -17,6 +17,7 @@ import javax.swing.JPanel;
  */
 public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
+    
     JPanel workArea;
     /**
      * Creates new form DoctorJPanel
