@@ -4,17 +4,34 @@
  */
 package UserInterface.HealthIntegrationAdminRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.HIIOrganization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Pauline
  */
 public class ManageHealthIntegrationSystemJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;    
+    private EcoSystem ecoSystem;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private HIIOrganization HIIOrganization;
     /**
      * Creates new form ManageHealthIntegrationSystemJPanel
      */
-    public ManageHealthIntegrationSystemJPanel() {
+    public ManageHealthIntegrationSystemJPanel(JPanel userProcessContainer,UserAccount userAccount, HIIOrganization HIIOrganization, Enterprise enterprise,EcoSystem ecoSyste) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.userAccount = userAccount;
+        this.HIIOrganization = (HIIOrganization)HIIOrganization;
+        this.enterprise = enterprise;
     }
 
     /**
@@ -29,7 +46,6 @@ public class ManageHealthIntegrationSystemJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         HealthIntegrationSysJTable = new javax.swing.JTable();
         ManageHealthIntegrationSysjLabel = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
 
         HealthIntegrationSysJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,13 +79,6 @@ public class ManageHealthIntegrationSystemJPanel extends javax.swing.JPanel {
         ManageHealthIntegrationSysjLabel.setForeground(new java.awt.Color(0, 51, 204));
         ManageHealthIntegrationSysjLabel.setText("Manage Health Integration System");
 
-        backJButton.setText("<<Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,9 +90,7 @@ public class ManageHealthIntegrationSystemJPanel extends javax.swing.JPanel {
                         .addComponent(ManageHealthIntegrationSysjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,24 +100,14 @@ public class ManageHealthIntegrationSystemJPanel extends javax.swing.JPanel {
                 .addComponent(ManageHealthIntegrationSysjLabel)
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(backJButton)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout cl = (CardLayout) userProcessContainer.getLayout();
-        cl.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable HealthIntegrationSysJTable;
     private javax.swing.JLabel ManageHealthIntegrationSysjLabel;
-    private javax.swing.JButton backJButton;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

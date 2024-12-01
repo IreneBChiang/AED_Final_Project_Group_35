@@ -34,12 +34,17 @@ public class OrganizationDirectory {
             organization = new PatientOrganization();
             organizationList.add(organization);
         }
-        else if(type.getValue().equals(Type.Insurance.getValue())){
-            organization = new CitizenManagerOrganization();
-            organizationList.add(organization);
-        }
         else if(type.getValue().equals(Type.Pharmacy.getValue())){
             organization = new InsuranceOrganization();
+            organizationList.add(organization);
+        } else if(type.getValue().equals(Type.HII.getValue())){
+            organization = new HIIOrganization();
+            organizationList.add(organization);
+        } else if(type.getValue().equals(Type.Insurance.getValue())){
+            organization = new InsuranceOrganization();
+            organizationList.add(organization);
+        } else if(type.getValue().equals(Type.InsuranceAgent.getValue())){
+            organization = new InsuranceAgentOrganization();
             organizationList.add(organization);
         }
        

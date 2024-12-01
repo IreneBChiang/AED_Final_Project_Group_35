@@ -50,26 +50,28 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblHomePage = new javax.swing.JLabel();
         manageProfileJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         patientNameLable = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnViewRecord = new javax.swing.JButton();
+        btnViewInsurance = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(253, 217, 217));
 
-        jLabel10.setBackground(new java.awt.Color(255, 208, 208));
-        jLabel10.setFont(new java.awt.Font("Savoye LET", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Medical Integration System");
-        jLabel10.setOpaque(true);
+        lblTitle.setBackground(new java.awt.Color(255, 208, 208));
+        lblTitle.setFont(new java.awt.Font("Savoye LET", 1, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 51, 255));
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Medical Integration System");
+        lblTitle.setOpaque(true);
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 0, 204));
-        jLabel9.setText("Home Page");
+        lblHomePage.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lblHomePage.setForeground(new java.awt.Color(153, 0, 204));
+        lblHomePage.setText("Home Page");
 
+        manageProfileJButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         manageProfileJButton.setText("Manage My Profile");
         manageProfileJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,10 +91,19 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
         patientNameLable.setText("<patientName>");
         patientNameLable.setEnabled(false);
 
-        jButton1.setText("Check Doctor Response");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnViewRecord.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnViewRecord.setText("View Medical Record");
+        btnViewRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnViewRecordActionPerformed(evt);
+            }
+        });
+
+        btnViewInsurance.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnViewInsurance.setText("View Insurance");
+        btnViewInsurance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewInsuranceActionPerformed(evt);
             }
         });
 
@@ -104,63 +115,77 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
-                        .addComponent(jLabel10))
+                        .addComponent(lblTitle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1)
                         .addGap(27, 27, 27)
                         .addComponent(patientNameLable)
                         .addGap(105, 105, 105)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblHomePage, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(305, 305, 305)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(manageProfileJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))))
+                            .addComponent(btnViewRecord, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(btnViewInsurance)))
                 .addContainerGap(256, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
+                    .addComponent(lblHomePage)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(patientNameLable)
                         .addComponent(jLabel1)))
                 .addGap(54, 54, 54)
                 .addComponent(manageProfileJButton)
-                .addGap(85, 85, 85)
-                .addComponent(jButton1)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnViewInsurance)
+                .addGap(31, 31, 31)
+                .addComponent(btnViewRecord)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageProfileJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageProfileJButtonActionPerformed
         // TODO add your handling code here:
         ManageMyProfileJPanel panel = new ManageMyProfileJPanel(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
-        userProcessContainer.add("ManageMyProfileJPanel", panel);
+        userProcessContainer.add("ViewUpdateMyProfileJPane", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageProfileJButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnViewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRecordActionPerformed
         // TODO add your handling code here:        
-        DoctorRespondJPanel panel = new DoctorRespondJPanel(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
-        userProcessContainer.add("DoctorRespondJPanel", panel);
+        ViewMedRecord panel = new ViewMedRecord(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
+        userProcessContainer.add("ViewMedRecord", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnViewRecordActionPerformed
+
+    private void btnViewInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInsuranceActionPerformed
+        // TODO add your handling code here:
+        ViewInsurance panel = new ViewInsurance(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
+        userProcessContainer.add("ViewInsurance", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewInsuranceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnViewInsurance;
+    private javax.swing.JButton btnViewRecord;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblHomePage;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JButton manageProfileJButton;
     private javax.swing.JLabel patientNameLable;
     // End of variables declaration//GEN-END:variables

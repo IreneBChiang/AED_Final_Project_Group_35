@@ -20,10 +20,8 @@ public abstract class Role {
         Admin("Admin"),
         Doctor("Doctor"),
         Patient("Patient"),
-        CustomerService("Customer Service"),
-        DrugSalesAdmin("Drug Sales Admin"),
-        HHSAdmin("HHS Admin"),
-        LabAssistant("Lab Assistant");
+        HealthIntegrationAdmin("HealthIntegration Admin"),
+        DrugSalesAdmin("Drug Sales Admin");
         
         private String value;
         private RoleType(String value){

@@ -17,9 +17,9 @@ import javax.swing.JPanel;
  *
  * @author dongyueli
  */
-public class InsuranceRole extends Role{
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new InsuranceAgentWorkAreaJPanel(userProcessContainer, account, (InsuranceOrganization)organization, enterprise, business);
-    }
-}
+//public class InsuranceRole extends Role{
+////    @Override
+////    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+////        return new InsuranceAgentWorkAreaJPanel(userProcessContainer, account, (InsuranceOrganization)organization, enterprise, business);
+////    }
+//}

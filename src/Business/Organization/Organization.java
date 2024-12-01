@@ -6,6 +6,8 @@
 package Business.Organization;
 
 import Business.Employee.EmployeeDirectory;
+import Business.Insurance.Insurance;
+import Business.Insurance.InsuranceDirectory;
 import Business.Patient.PatientDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -25,11 +27,35 @@ public abstract class Organization {
     private PatientDirectory patientDirectory; 
     private int organizationID;
     private static int counter;
+    private InsuranceDirectory insuranceDirectory; 
+
+    public InsuranceDirectory getInsuranceDirectory() {
+        return insuranceDirectory;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Organization.counter = counter;
+    }
+
+    public ArrayList<Insurance> getInsuranceList() {
+        return insuranceDirectory.getInsuranceList();
+    }
+
+    public void setInsuranceList() {
+        if(insuranceDirectory == null){
+            insuranceDirectory = new InsuranceDirectory();
+        }
+        insuranceDirectory.addInsurance("Amy", "A", "B", "Boston", "10000");
+    }
     
     public enum Type{
         Admin("Admin Organization"), Doctor("Doctor Organization"), CitizenManager("CitizenManager Organization")
         ,Patient("Patient Organization"),Insurance("Insurance Organization"),RegionalGovernment("RegionalGovernment Organization")
-        ,Pharmacy("Pharmacy Organization"),HealthCareInsurance("HealthCareInsurance Organization");
+        ,Pharmacy("Pharmacy Organization"),HII("HealthCareInsurance Organization"), InsuranceAgent("Insurance Agent Organization");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -47,6 +73,8 @@ public abstract class Organization {
         patientDirectory = new PatientDirectory();
         organizationID = counter;
         ++counter;
+        insuranceDirectory = new InsuranceDirectory(); 
+        setInsuranceList();
     }
 
     public abstract ArrayList<Role> getSupportedRole();
