@@ -2,19 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UserInterface.HomePage;
+package UserInterface.PatientRole;
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.PatientOrganization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author user
  */
-public class viewInsurance extends javax.swing.JPanel {
+public class ViewInsurance extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private PatientOrganization patientOrganization;
+    private EcoSystem ecoSystem;
     /**
      * Creates new form viewInsurance
      */
-    public viewInsurance() {
+    public ViewInsurance(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.patientOrganization = (PatientOrganization) patientOrganization;
+        this.enterprise = enterprise;
+        this.ecoSystem = ecoSystem;
     }
 
     /**
@@ -82,6 +99,9 @@ public class viewInsurance extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

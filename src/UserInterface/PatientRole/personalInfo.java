@@ -2,19 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UserInterface.HomePage;
+package UserInterface.PatientRole;
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.PatientOrganization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author user
  */
-public class personalInfo extends javax.swing.JPanel {
+public class PersonalInfo extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private PatientOrganization patientOrganization;
+    private EcoSystem ecoSystem;
     /**
      * Creates new form personalInfo
      */
-    public personalInfo() {
+    public PersonalInfo(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.patientOrganization = (PatientOrganization) patientOrganization;
+        this.enterprise = enterprise;
+        this.ecoSystem = ecoSystem;
     }
 
     /**
@@ -32,6 +49,7 @@ public class personalInfo extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 500));
 
@@ -44,6 +62,13 @@ public class personalInfo extends javax.swing.JPanel {
 
         btnSave.setText("Save");
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -51,7 +76,9 @@ public class personalInfo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnBack)
+                        .addGap(76, 76, 76)
                         .addComponent(lblTitle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
@@ -71,7 +98,9 @@ public class personalInfo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(lblTitle)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle)
+                    .addComponent(btnBack))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -80,14 +109,22 @@ public class personalInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

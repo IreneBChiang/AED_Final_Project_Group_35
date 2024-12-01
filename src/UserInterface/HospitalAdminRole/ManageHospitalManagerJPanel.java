@@ -6,7 +6,7 @@
 package UserInterface.HospitalAdminRole;
 
 import Business.Employee.Employee;
-import Business.Employee.Insurance;
+import Business.Insurance.Insurance;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -36,44 +36,44 @@ public class ManageHospitalManagerJPanel extends javax.swing.JPanel {
     }
     
     
-    private void populateTable(Insurance insurance){
-        DefaultTableModel model = (DefaultTableModel) ManageHospManagerJTable.getModel();
-        
-        model.setRowCount(0);
-        
-        if (insurance instanceof PatientOrganization) {
-            for (Patient patient : insurance.getPatientDirectory().getPatientList()) {
-                Object[] row = new Object[2];
-                row[0] = patient.getPatientID();
-                row[1] = patient.getPatientName();
-                model.addRow(row);
-
-            }
-        }else{
-            for (Employee employee : insurance.getEmployeeDirectory().getEmployeeList()){
-            Object[] row = new Object[2];
-            row[0] = employee.getEmpId();
-            row[1] = employee.getEmpName();
-            model.addRow(row);
-        }
-        }
-    }
-    
-    private void populateTable(Insurance insurance){
-        DefaultTableModel model = (DefaultTableModel) ManageHospManagerJTable.getModel();   
-        model.setRowCount(0);
-          
-        for(Insurance insurance:ua.getRegisterRequestDirectory().getRegisterRequestList()){
-            Object[] row = new Object[5];
-            row[0] = insurance;
-            row[1] = insurance.getNetwork();
-            row[2] = insurance.getEnterprise();
-            row[3] = insurance.getOrganization();
-            row[4] = insurance.getApproveOrNot();
-             model.addRow(row);
-            
-        }
-    }
+//    private void populateTable(Insurance insurance){
+//        DefaultTableModel model = (DefaultTableModel) ManageHospManagerJTable.getModel();
+//        
+//        model.setRowCount(0);
+//        
+//        if (insurance instanceof PatientOrganization) {
+//            for (Patient patient : insurance.getPatientDirectory().getPatientList()) {
+//                Object[] row = new Object[2];
+//                row[0] = patient.getPatientID();
+//                row[1] = patient.getPatientName();
+//                model.addRow(row);
+//
+//            }
+//        }else{
+//            for (Employee employee : insurance.getEmployeeDirectory().getEmployeeList()){
+//            Object[] row = new Object[2];
+//            row[0] = employee.getEmpId();
+//            row[1] = employee.getEmpName();
+//            model.addRow(row);
+//        }
+//        }
+//    }
+//    
+//    private void populateTable(Insurance insurance){
+//        DefaultTableModel model = (DefaultTableModel) ManageHospManagerJTable.getModel();   
+//        model.setRowCount(0);
+//          
+//        for(Insurance insurance:ua.getRegisterRequestDirectory().getRegisterRequestList()){
+//            Object[] row = new Object[5];
+//            row[0] = insurance;
+//            row[1] = insurance.getNetwork();
+//            row[2] = insurance.getEnterprise();
+//            row[3] = insurance.getOrganization();
+//            row[4] = insurance.getApproveOrNot();
+//             model.addRow(row);
+//            
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
