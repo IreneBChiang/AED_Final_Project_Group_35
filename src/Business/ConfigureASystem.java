@@ -70,6 +70,14 @@ public class ConfigureASystem {
         ua3.setPatient(patient1);
         ua3.setRole(new PatientRole());
         
+        Patient patient2 = org2.getPatientDirectory().createPtient("Pt2");
+        UserAccount ua7 = org2.getUserAccountDirectory().createUserAccount();
+        ua7.setPassword("pt2");
+        ua7.setUsername("pt2");
+        ua7.setName("pt2");
+        ua7.setPatient(patient2);
+        ua7.setRole(new PatientRole());
+        
         Organization  org3 = e1.getOrganizationDirectory().createOrganization(Organization.Type.HII);
         org3.setName("HII");
         Employee employee12 = org3.getEmployeeDirectory().createEmployee("HII1");

@@ -5,6 +5,7 @@
  */
 package Business.Patient;
 
+import Business.Insurance.Insurance;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,8 @@ import java.util.ArrayList;
  */
 public class PatientDirectory {
     private ArrayList<Patient> patientList;
+    private static int count = 1000;
+    private Insurance insurance;
     
     public PatientDirectory() {
         this.patientList = new ArrayList<>();
@@ -29,10 +32,21 @@ public class PatientDirectory {
     
     
     public Patient createPtient(String name) {
+        for (Patient p : patientList) {
+        if (p.getPatientName().equals(name)) {
+            return p; // 返回现有患者
+        }
+    }
         Patient pt = new Patient();
         pt.setPatientName(name);
+        pt.setPatientID(generateUniqueID());
+        pt.setInsurance(insurance);
         patientList.add(pt);
         return pt;
+    }
+    
+    public int generateUniqueID() {
+        return count++;
     }
 
     

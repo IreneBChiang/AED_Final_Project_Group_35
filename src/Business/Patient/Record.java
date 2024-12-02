@@ -26,6 +26,59 @@ public class Record {
     private int totalTime;
     private String needMoreExcerciseOrNot;
     
+    private String diseaseName;
+    private String medicineName;
+    private String demandQuantity;
+    private String hospitalName;
+    private String doctorName;
+
+    public Record(){
+        diseaseName = "Allergies";
+        medicineName = "Cetirizine";
+        demandQuantity = "2";
+        hospitalName = "Elizabeth's medical center";
+    }
+    
+    public String getDiseaseName() {
+        return diseaseName;
+    }
+
+    public void setDiseaseName(String diseaseName) {
+        this.diseaseName = diseaseName;
+    }
+
+    public String getMedicineName() {
+        return medicineName;
+    }
+
+    public void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
+    }
+
+    public String getDemandQuantity() {
+        return demandQuantity;
+    }
+
+    public void setDemandQuantity(String demandQuantity) {
+        this.demandQuantity = demandQuantity;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+    
     
     public Date getDate() {
         return date;
@@ -105,7 +158,7 @@ public class Record {
         return totalTime;
     }
 
-    public void setTotalTime(int totalTime) {
+    public void setTotalTime() {
         this.totalTime = standTime + moveTime + excerciseTime;
     }
 
@@ -116,12 +169,6 @@ public class Record {
     public void setNeedMoreExcerciseOrNot(String needMoreExcerciseOrNot) {
         this.needMoreExcerciseOrNot = needMoreExcerciseOrNot;
     }
-
-    
-    
-    
-    
-    
     
     @Override
     public String toString() {
