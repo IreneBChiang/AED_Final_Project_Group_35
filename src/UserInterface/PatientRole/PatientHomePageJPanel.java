@@ -7,7 +7,9 @@ package UserInterface.PatientRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Insurance.Insurance;
 import Business.Organization.PatientOrganization;
+import Business.Patient.Patient;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientDoctorWorkRequest;
@@ -29,7 +31,7 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PatientHomePageJPanel
      */
-    public PatientHomePageJPanel(JPanel userProcessContainer,UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise,EcoSystem ecoSystem) {
+    public PatientHomePageJPanel(JPanel userProcessContainer,UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise,EcoSystem ecoSyste) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -37,7 +39,6 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.patientOrganization = (PatientOrganization)patientOrganization;
         this.enterprise = enterprise;
-        //this.patientDirectory = patientDirectory;
         patientNameLable.setText(userAccount.getName());
     }
 
@@ -173,6 +174,10 @@ public class PatientHomePageJPanel extends javax.swing.JPanel {
 
     private void btnViewInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInsuranceActionPerformed
         // TODO add your handling code here:
+        Insurance newInsurance = new Insurance();
+        newInsurance.setInsurance(userAccount.getName(), "Health Plan A", "Type A", "City Hospital", "500");
+        Patient patient = userAccount.getPatient();
+        patient.setInsurance(newInsurance);
         ViewInsurance panel = new ViewInsurance(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
         userProcessContainer.add("ViewInsurance", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

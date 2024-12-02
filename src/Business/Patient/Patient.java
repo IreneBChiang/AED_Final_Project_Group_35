@@ -5,6 +5,7 @@
  */
 package Business.Patient;
 
+import Business.Insurance.Insurance;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -21,20 +22,18 @@ public class Patient {
     private String emailAddress;
     private int areaCode;
     private int phoneNumber;
-    private static int count = 1000;
     private String myDoctor;
     private UserAccount mydoctor;
     private UserAccount mypatient;
-    
-    private RecordHistory recordHistory;
+    private Record record;
+    private Insurance insurance;
     
     
     public Patient()
     {
         super();
-        count++;
-        patientID=count;
-        this.recordHistory = new RecordHistory();
+        //count++;
+        //patientID=count;
     }
 
    
@@ -102,12 +101,12 @@ public class Patient {
         this.phoneNumber = phoneNumber;
     }
 
-    public RecordHistory getRecordHistory() {
-        return recordHistory;
+    public Record getRecord() {
+        return record;
     }
 
-    public void setRecordHistory(RecordHistory recordHistory) {
-        this.recordHistory = recordHistory;
+    public void setRecord(Record record) {
+        this.record = record;
     }
 
     public String getMyDoctor() {
@@ -142,11 +141,14 @@ public class Patient {
         this.mypatient = mypatient;
     }
     
-    
-    
-    
+    public Insurance getInsurance() {
+        return insurance;
+    }
 
-    
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+   
     @Override
     public String toString() {
         return patientName; 

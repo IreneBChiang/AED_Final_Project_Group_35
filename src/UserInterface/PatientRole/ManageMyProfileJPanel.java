@@ -46,7 +46,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         emailJTextField.setText(patient.getEmailAddress());
         areaCodeJTextField.setText(String.valueOf(patient.getAreaCode()));
         numberJTextField.setText(String.valueOf(patient.getPhoneNumber()));
-        myDoctorJTextField.setText(patient.getMyDoctor());
         
         
         
@@ -71,7 +70,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         numberJTextField = new javax.swing.JTextField();
         emailJTextField = new javax.swing.JTextField();
         areaCodeJTextField = new javax.swing.JTextField();
-        primaryDocNameJLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         patientIDJTextField = new javax.swing.JTextField();
         updateJButton = new javax.swing.JButton();
@@ -84,7 +82,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         saveJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        myDoctorJTextField = new javax.swing.JTextField();
         btnIntegrate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 204));
@@ -151,9 +148,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         });
         add(areaCodeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 362, 50, -1));
 
-        primaryDocNameJLabel.setText("Primary Doctor Name");
-        add(primaryDocNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 411, -1, -1));
-
         jLabel4.setText("Patient ID");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 116, -1, -1));
 
@@ -214,13 +208,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, -1, -1));
 
-        myDoctorJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                myDoctorJTextFieldFocusLost(evt);
-            }
-        });
-        add(myDoctorJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 406, 144, -1));
-
         btnIntegrate.setText("Integrate");
         btnIntegrate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,10 +253,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_streetAddressJTextFieldFocusLost
 
-    private void myDoctorJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_myDoctorJTextFieldFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_myDoctorJTextFieldFocusLost
-
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
@@ -289,7 +272,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         emailJTextField.setText(patient.getEmailAddress());
         areaCodeJTextField.setText(String.valueOf(patient.getAreaCode()));
         numberJTextField.setText(String.valueOf(patient.getPhoneNumber()));
-        myDoctorJTextField.setText(patient.getMyDoctor());
         
         
         nameJTextField.setEnabled(false);
@@ -301,7 +283,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         emailJTextField.setEnabled(true);
         areaCodeJTextField.setEnabled(true);
         numberJTextField.setEnabled(true);
-        myDoctorJTextField.setEnabled(true);
         saveJButton.setEnabled(true);
         updateJButton.setEnabled(false);
     }//GEN-LAST:event_updateJButtonActionPerformed
@@ -337,9 +318,9 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
 //                String doc = myDoctorJTextField.getText();
                 
                 
-                Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
-                userAccount.setPatient(patient);
-                patient.setPatientName(userAccount.getName());
+                //Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
+                //userAccount.setPatient(patient);
+                //patient.setPatientName(userAccount.getName());
                 patient.setAge(age);
                 patient.setAreaCode(areaCode);
                 patient.setEmailAddress(emailAddress);
@@ -347,15 +328,9 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
                 patient.setStreetAddress(streetAddress);
                 patient.setTown(town);
                 patient.setZipCode(zipCode);
-//                patient.setMyDoctor(doc);
-                
-                saveJButton.setEnabled(false);
-                updateJButton.setEnabled(true);
-
-
 
                 JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
-                resetFields();
+                //resetFields();
             }catch(Exception e){
 
                 JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -404,11 +379,9 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField myDoctorJTextField;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTextField numberJTextField;
     private javax.swing.JTextField patientIDJTextField;
-    private javax.swing.JLabel primaryDocNameJLabel;
     private javax.swing.JButton saveJButton;
     private javax.swing.JTextField streetAddressJTextField;
     private javax.swing.JButton updateJButton;
