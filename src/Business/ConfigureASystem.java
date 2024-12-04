@@ -62,7 +62,7 @@ public class ConfigureASystem {
         
         Organization  org2 = e1.getOrganizationDirectory().createOrganization(Organization.Type.Patient);
         org2.setName("Patient Department");
-        Patient patient1 = org2.getPatientDirectory().createPtient("Pt1");
+        Patient patient1 = org2.getPatientDirectory().createPatient("Pt1");
         UserAccount ua3 = org2.getUserAccountDirectory().createUserAccount();
         ua3.setPassword("pt1");
         ua3.setUsername("pt1");
@@ -70,7 +70,7 @@ public class ConfigureASystem {
         ua3.setPatient(patient1);
         ua3.setRole(new PatientRole());
         
-        Patient patient2 = org2.getPatientDirectory().createPtient("Pt2");
+        Patient patient2 = org2.getPatientDirectory().createPatient("Pt2");
         UserAccount ua7 = org2.getUserAccountDirectory().createUserAccount();
         ua7.setPassword("pt2");
         ua7.setUsername("pt2");

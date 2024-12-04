@@ -29,9 +29,7 @@ public class PatientDirectory {
         this.patientList = patientList;
     }
     
-    
-    
-    public Patient createPtient(String name) {
+    public Patient createPatient(String name) {
         for (Patient p : patientList) {
         if (p.getPatientName().equals(name)) {
             return p; // 返回现有患者

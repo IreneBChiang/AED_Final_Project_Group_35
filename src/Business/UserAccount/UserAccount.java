@@ -9,7 +9,6 @@ import Business.Employee.Employee;
 import Business.Patient.Patient;
 import Business.RegisterRequest.RegisterRequestDirectory;
 import Business.Role.Role;
-import Business.WorkQueue.WorkQueue;
 
 /**
  *
@@ -21,13 +20,11 @@ public class UserAccount {
     private Employee employee;
     private Patient patient;
     private Role role;
-    private WorkQueue workQueue;
     private RegisterRequestDirectory registerRequestDirectory;
     private String name;
     
     
     public UserAccount() {
-        workQueue = new WorkQueue();
         registerRequestDirectory = new RegisterRequestDirectory();
     }
 
@@ -69,14 +66,6 @@ public class UserAccount {
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    public WorkQueue getWorkQueue() {
-        return workQueue;
-    }
-
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
     }
 
     public RegisterRequestDirectory getRegisterRequestDirectory() {
