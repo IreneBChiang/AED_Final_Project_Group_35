@@ -25,24 +25,50 @@ public class EnterpriseDirectory {
     
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
         Enterprise enterprise = null;
-        if (type == Enterprise.EnterpriseType.Hospital){
+        
+        switch (type) {
+        case Hospital:
             enterprise = new HospitalEnterprise(name);
-            enterpriseList.add(enterprise);
-        }
-        else if (type == Enterprise.EnterpriseType.Pharmacy) {
+            break;
+        case Pharmacy:
             enterprise = new PharmacyEnterprise(name);
-            enterpriseList.add(enterprise);
-        } 
-        else if (type == Enterprise.EnterpriseType.Government) {
+            break;
+        case Government:
             enterprise = new RegionalGovernment(name);
-            enterpriseList.add(enterprise);
-        } 
-        else if (type == Enterprise.EnterpriseType.Insurance) {
+            break;
+        case Insurance:
             enterprise = new InsuranceEnterprise(name);
-            enterpriseList.add(enterprise);
+            break;
+        case HealthInsurance:
+            enterprise = new InsuranceEnterprise(name);
+            break;
+        default:
+            throw new IllegalArgumentException("Invalid enterprise type: " + type);
         }
+
+        enterpriseList.add(enterprise);
         return enterprise;
-    }
-    
-    
+    } 
 }
+
+//        if (type == Enterprise.EnterpriseType.Hospital){
+//            enterprise = new HospitalEnterprise(name);
+//            enterpriseList.add(enterprise);
+//        }
+//        else if (type == Enterprise.EnterpriseType.Pharmacy) {
+//            enterprise = new PharmacyEnterprise(name);
+//            enterpriseList.add(enterprise);
+//        } 
+//        else if (type == Enterprise.EnterpriseType.Government) {
+//            enterprise = new RegionalGovernment(name);
+//            enterpriseList.add(enterprise);
+//        } 
+//        else if (type == Enterprise.EnterpriseType.Insurance) {
+//            enterprise = new InsuranceEnterprise(name);
+//            enterpriseList.add(enterprise);
+//        }
+//        else if (type == Enterprise.EnterpriseType.HealthInsurance) {
+//            enterprise = new InsuranceEnterprise(name);
+//            enterpriseList.add(enterprise);
+//        }
+//        return enterprise;

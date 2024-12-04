@@ -307,7 +307,7 @@ public class CreateMyProfileJPanel extends javax.swing.JPanel {
                 int phoneNumber = Integer.parseInt(numberJTextField.getText());
                 
                 
-                Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
+                Patient patient = patientOrganization.getPatientDirectory().createPatient(userAccount.getName());
                 userAccount.setPatient(patient);
                 patient.setPatientName(userAccount.getName());
                 patient.setAge(age);

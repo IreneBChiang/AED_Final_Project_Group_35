@@ -12,8 +12,6 @@ import Business.Organization.PatientOrganization;
 import Business.Patient.Patient;
 
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.PatientDoctorWorkRequest;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 

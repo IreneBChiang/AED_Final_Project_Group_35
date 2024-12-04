@@ -25,15 +25,12 @@ public class InsuranceDirectory {
         this.InsuranceList = InsuranceList;
     }
     
-    
-    
     public void addInsurance(String ptName, String insName, String insType, String insHospital, String insCharge) {
         Insurance ins = new Insurance();
         ins.setInsurance(ptName, insName, insType, insHospital, insCharge);
         InsuranceList.add(ins);
     }
-
-    
+ 
     public void removeInsurance(Insurance ins){
         InsuranceList.remove(ins);
     }

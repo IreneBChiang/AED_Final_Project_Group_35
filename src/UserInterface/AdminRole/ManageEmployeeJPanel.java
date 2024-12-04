@@ -187,7 +187,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         if (organization instanceof PatientOrganization) {
-            organization.getPatientDirectory().createPtient(name);
+            organization.getPatientDirectory().createPatient(name);
 
 
         }else{
