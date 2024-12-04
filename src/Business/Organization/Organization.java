@@ -6,10 +6,11 @@
 package Business.Organization;
 
 import Business.Employee.EmployeeDirectory;
+import Business.Insurance.Insurance;
+import Business.Insurance.InsuranceDirectory;
 import Business.Patient.PatientDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
-import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
@@ -19,17 +20,40 @@ import java.util.ArrayList;
 public abstract class Organization {
     
     private String name;
-    private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private PatientDirectory patientDirectory; 
     private int organizationID;
     private static int counter;
+    private InsuranceDirectory insuranceDirectory; 
+
+    public InsuranceDirectory getInsuranceDirectory() {
+        return insuranceDirectory;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Organization.counter = counter;
+    }
+
+    public ArrayList<Insurance> getInsuranceList() {
+        return insuranceDirectory.getInsuranceList();
+    }
+
+    public void setInsuranceList() {
+        if(insuranceDirectory == null){
+            insuranceDirectory = new InsuranceDirectory();
+        }
+        insuranceDirectory.addInsurance("Amy", "A", "B", "Boston", "10000");
+    }
     
     public enum Type{
         Admin("Admin Organization"), Doctor("Doctor Organization"), CitizenManager("CitizenManager Organization")
         ,Patient("Patient Organization"),Insurance("Insurance Organization"),RegionalGovernment("RegionalGovernment Organization")
-        ,Pharmacy("Pharmacy Organization"),HealthCareInsurance("HealthCareInsurance Organization");
+        ,Pharmacy("Pharmacy Organization"),HII("HealthCareInsurance Organization"), InsuranceAgent("Insurance Agent Organization");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -41,12 +65,13 @@ public abstract class Organization {
 
     public Organization(String name) {
         this.name = name;
-        workQueue = new WorkQueue();
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         patientDirectory = new PatientDirectory();
         organizationID = counter;
         ++counter;
+        insuranceDirectory = new InsuranceDirectory(); 
+        setInsuranceList();
     }
 
     public abstract ArrayList<Role> getSupportedRole();
@@ -75,19 +100,9 @@ public abstract class Organization {
     public String getName() {
         return name;
     }
-    
-
-    public WorkQueue getWorkQueue() {
-        return workQueue;
-    }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
     }
 
     @Override

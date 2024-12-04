@@ -6,11 +6,19 @@ package UserInterface.InsuranceRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Insurance.Insurance;
+import Business.Organization.InsuranceAgentOrganization;
+import Business.Organization.InsuranceOrganization;
 import Business.Organization.Organization;
+import Business.Organization.PatientOrganization;
+import Business.Patient.Patient;
 import Business.UserAccount.UserAccount;
 import UserInterface.DoctorRole.*;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,13 +26,23 @@ import javax.swing.JPanel;
  */
 public class InsuranceAgentWorkAreaJPanel extends javax.swing.JPanel {
 
-        JPanel workArea;
+    private JPanel userProcessContainer;    
+    private EcoSystem ecoSystem;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private InsuranceAgentOrganization insuranceAgentOrganization;
     /**
      * Creates new form DoctorJPanel
      */
-    public InsuranceAgentWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public InsuranceAgentWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, InsuranceAgentOrganization insuranceAgentOrganization, Enterprise enterprise, EcoSystem business) {
         initComponents();
-        this.workArea = userProcessContainer;
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.userAccount = userAccount;
+        this.insuranceAgentOrganization = insuranceAgentOrganization;
+        this.enterprise = enterprise;
+        
+        populateTable();
     }
 
     /**
@@ -37,47 +55,44 @@ public class InsuranceAgentWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnSearch = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblins = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        btnLogout = new javax.swing.JButton();
         btnAddPrescription = new javax.swing.JButton();
         btnViewInsurance = new javax.swing.JButton();
 
         btnSearch.setText("SearchCustomerByName");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblins.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Insurance name", "Insurance Type", "Hospital served", "Insurance charge"
+                "Patient Name", "Insurance name", "Insurance Type", "Hospital served", "Insurance charge"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblins);
 
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 51, 204));
         jLabel12.setText("Insurance Agent Work Area");
-
-        btnLogout.setText("LogOut");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
 
         btnAddPrescription.setText("Add Insurance");
         btnAddPrescription.addActionListener(new java.awt.event.ActionListener() {
@@ -99,15 +114,13 @@ public class InsuranceAgentWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogout)
-                .addGap(75, 75, 75)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(168, 168, 168))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(btnSearch))
                     .addGroup(layout.createSequentialGroup()
@@ -125,12 +138,10 @@ public class InsuranceAgentWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogout)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,32 +155,83 @@ public class InsuranceAgentWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnViewInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInsuranceActionPerformed
         // TODO add your handling code here:
+        ArrayList<Insurance> insuranceList = insuranceAgentOrganization.getInsuranceList();
+        
+        int selectedRowIndex = tblins.getSelectedRow();
+        if(selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select the product first.");
+            return;
+        }
+        
+        Insurance insurance = (Insurance)tblins.getValueAt(selectedRowIndex, 0);
+        ViewInsuranceJPanel vijp = new ViewInsuranceJPanel(userProcessContainer,userAccount, insuranceAgentOrganization,enterprise,ecoSystem, insurance);
+        userProcessContainer.add("ViewInsuranceJPanel", vijp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewInsuranceActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        workArea.remove(this);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.previous(workArea);
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnAddPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPrescriptionActionPerformed
         // TODO add your handling code here:
-//        AddInsuranceJPanel aijp = new AddInsuranceJPanel(workArea, xxxx);
-//        workArea.add("SupplierWorkAreaJPanel", aijp);
-//        CardLayout layout = (CardLayout) workArea.getLayout();
-//        layout.next(workArea);
+        AddInsuranceJPanel aijp = new AddInsuranceJPanel(userProcessContainer,userAccount, insuranceAgentOrganization,enterprise,ecoSystem);
+        userProcessContainer.add("AddInsuranceJPanel", aijp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddPrescriptionActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Insurance> insuranceList = insuranceAgentOrganization.getInsuranceList();
+        String search = txtSearch.getText().trim();
+        
+        if (insuranceAgentOrganization.getInsuranceDirectory().searchInsuranceList(search) == null
+                || txtSearch.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Product not found", "Information", JOptionPane.INFORMATION_MESSAGE);
+            txtSearch.setText("");
+            return;
+        }
+        ArrayList<Insurance> searchInsurance = insuranceAgentOrganization.getInsuranceDirectory().searchInsuranceList(search);
+        
+        DefaultTableModel model = (DefaultTableModel) tblins.getModel();
+        model.setRowCount(0);
+        
+        for(Insurance i: searchInsurance){
+            Object row[] = new Object[5];
+            row[0] = i;
+            row[1] = i.getInsName();
+            row[2] = i.getInsType();
+            row[3] = i.getInsHospital();
+            row[4] = i.getInsCharge();
+            model.addRow(row);
+        }
+        
+        txtSearch.setText("");
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPrescription;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewInsurance;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblins;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+    
+    public void populateTable() {
+        ArrayList<Insurance> insuranceList = insuranceAgentOrganization.getInsuranceList();
+        
+        DefaultTableModel model = (DefaultTableModel) tblins.getModel();
+        model.setRowCount(0);
+        
+        for(Insurance i: insuranceList){
+            Object row[] = new Object[5];
+            row[0] = i;
+            row[1] = i.getInsName();
+            row[2] = i.getInsType();
+            row[3] = i.getInsHospital();
+            row[4] = i.getInsCharge();
+            model.addRow(row);
+        }
+    }
 }

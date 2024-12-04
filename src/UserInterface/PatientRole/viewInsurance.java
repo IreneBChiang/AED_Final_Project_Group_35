@@ -2,19 +2,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UserInterface.HomePage;
+package UserInterface.PatientRole;
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Insurance.Insurance;
+import Business.Organization.PatientOrganization;
+import Business.Patient.Patient;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
-public class viewInsurance extends javax.swing.JPanel {
+public class ViewInsurance extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private PatientOrganization patientOrganization;
+    private EcoSystem ecoSystem;
+    private Patient patient;
     /**
      * Creates new form viewInsurance
      */
-    public viewInsurance() {
+    public ViewInsurance(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.patientOrganization = (PatientOrganization) patientOrganization;
+        this.enterprise = enterprise;
+        this.ecoSystem = ecoSystem;
+        this.patient= userAccount.getPatient();
+        
+        populateTable();
     }
 
     /**
@@ -47,7 +71,7 @@ public class viewInsurance extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Type", "Amount", "Hospital"
+                "Name", "Type", "Hospital", "Amount"
             }
         ));
         jScrollPane1.setViewportView(tblInsurance);
@@ -82,6 +106,9 @@ public class viewInsurance extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -90,4 +117,17 @@ public class viewInsurance extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInsurance;
     // End of variables declaration//GEN-END:variables
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblInsurance.getModel();
+        model.setRowCount(0);
+        Insurance insurance = patient.getInsurance();
+        
+        Object row[] = new Object[4];
+        row[0] = insurance.getInsName();
+        row[1] = insurance.getInsType();
+        row[2] = insurance.getInsHospital();
+        row[3] = insurance.getInsCharge();
+        model.addRow(row);
+    }
 }

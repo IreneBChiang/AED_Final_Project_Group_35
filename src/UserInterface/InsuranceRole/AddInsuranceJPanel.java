@@ -4,9 +4,19 @@
  */
 package UserInterface.InsuranceRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Insurance.Insurance;
+import Business.Organization.InsuranceAgentOrganization;
+import Business.Organization.PatientOrganization;
+import Business.Patient.Patient;
+import Business.UserAccount.UserAccount;
 import UserInterface.DoctorRole.*;
 import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,12 +24,22 @@ import javax.swing.JPanel;
  */
 public class AddInsuranceJPanel extends javax.swing.JPanel {
 
-    JPanel workArea;
+    private JPanel userProcessContainer;    
+    private EcoSystem ecoSystem;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private InsuranceAgentOrganization insuranceAgentOrganization;
+    private Insurance insurance;
     /**
      * Creates new form MakePrescriptionJPanel
      */
-    public AddInsuranceJPanel() {
+    public AddInsuranceJPanel(JPanel userProcessContainer,UserAccount userAccount, InsuranceAgentOrganization insuranceAgentOrganization, Enterprise enterprise,EcoSystem ecoSyste) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.userAccount = userAccount;
+        this.insuranceAgentOrganization = (InsuranceAgentOrganization)insuranceAgentOrganization;
+        this.enterprise = enterprise;
     }
 
     /**
@@ -31,25 +51,27 @@ public class AddInsuranceJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDiseasename = new javax.swing.JLabel();
-        lblDrugname = new javax.swing.JLabel();
-        lblDemandQuantity = new javax.swing.JLabel();
-        lblDesc = new javax.swing.JLabel();
-        txtDiseasename = new javax.swing.JTextField();
-        btnMedicinename = new javax.swing.JTextField();
-        txtDemandquantity = new javax.swing.JTextField();
-        txtDesc = new javax.swing.JTextField();
+        lblinsName = new javax.swing.JLabel();
+        lblinsType = new javax.swing.JLabel();
+        lblinsHospital = new javax.swing.JLabel();
+        lblinsCharge = new javax.swing.JLabel();
+        txtinsName = new javax.swing.JTextField();
+        txtinsType = new javax.swing.JTextField();
+        txtinsHospital = new javax.swing.JTextField();
+        txtinsCharge = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        txtptName = new javax.swing.JTextField();
+        lblptName = new javax.swing.JLabel();
 
-        lblDiseasename.setText("Insurance name");
+        lblinsName.setText("Insurance name");
 
-        lblDrugname.setText("Insurance type");
+        lblinsType.setText("Insurance type");
 
-        lblDemandQuantity.setText("Hospital served");
+        lblinsHospital.setText("Hospital served");
 
-        lblDesc.setText("Insurance charge");
+        lblinsCharge.setText("Insurance charge");
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -59,9 +81,16 @@ public class AddInsuranceJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jLabel1.setText("Add Insurance");
+        lblTitle.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        lblTitle.setText("Add Insurance");
+
+        lblptName.setText("Patient name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -73,21 +102,25 @@ public class AddInsuranceJPanel extends javax.swing.JPanel {
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDiseasename)
-                                    .addComponent(lblDrugname)
-                                    .addComponent(lblDemandQuantity)
-                                    .addComponent(lblDesc))
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDiseasename)
-                                    .addComponent(btnMedicinename)
-                                    .addComponent(txtDemandquantity)
-                                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblinsName)
+                                    .addComponent(lblinsType)
+                                    .addComponent(lblinsHospital)
+                                    .addComponent(lblinsCharge)
+                                    .addComponent(lblptName))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtptName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtinsName)
+                                        .addComponent(txtinsType)
+                                        .addComponent(txtinsHospital)
+                                        .addComponent(txtinsCharge, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -99,48 +132,91 @@ public class AddInsuranceJPanel extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
-                    .addComponent(jLabel1))
-                .addGap(36, 36, 36)
+                    .addComponent(lblTitle))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDiseasename)
-                    .addComponent(txtDiseasename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addComponent(txtptName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblptName))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMedicinename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDrugname))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDemandquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDemandQuantity))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDesc)
-                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addGap(41, 41, 41))
+                    .addComponent(txtinsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblinsName))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblinsType)
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblinsHospital)
+                            .addComponent(txtinsHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblinsCharge)
+                            .addComponent(txtinsCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(btnSave)
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtinsType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        workArea.remove(this);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.previous(workArea);
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        String ptName = txtptName.getText();
+        String insName = txtinsName.getText();
+        String insType = txtinsType.getText();
+        String insHospital = txtinsHospital.getText();
+        String insCharge = txtinsCharge.getText();
+        
+        insuranceAgentOrganization.getInsuranceDirectory().addInsurance(ptName, insName, insType, insHospital, insCharge);
+        
+        txtptName.setText("");
+        txtinsName.setText("");
+        txtinsType.setText("");
+        txtinsHospital.setText("");
+        txtinsCharge.setText("");
+        
+        userProcessContainer.remove(this); // 移除當前頁面
+        Component[] components = userProcessContainer.getComponents();
+        for (Component component : components) {
+            if (component instanceof InsuranceAgentWorkAreaJPanel) {
+                InsuranceAgentWorkAreaJPanel previousPanel = (InsuranceAgentWorkAreaJPanel) component;
+                previousPanel.populateTable(); // 調用上一頁的刷新方法
+            }
+        }
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+//        System.out.print("Added");
+//         ArrayList<Insurance> insuranceList = insuranceAgentOrganization.getInsuranceList();
+//         for(Insurance i: insuranceList){
+//             System.out.println(i.getInsName());
+//        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JTextField btnMedicinename;
     private javax.swing.JButton btnSave;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblDemandQuantity;
-    private javax.swing.JLabel lblDesc;
-    private javax.swing.JLabel lblDiseasename;
-    private javax.swing.JLabel lblDrugname;
-    private javax.swing.JTextField txtDemandquantity;
-    private javax.swing.JTextField txtDesc;
-    private javax.swing.JTextField txtDiseasename;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblinsCharge;
+    private javax.swing.JLabel lblinsHospital;
+    private javax.swing.JLabel lblinsName;
+    private javax.swing.JLabel lblinsType;
+    private javax.swing.JLabel lblptName;
+    private javax.swing.JTextField txtinsCharge;
+    private javax.swing.JTextField txtinsHospital;
+    private javax.swing.JTextField txtinsName;
+    private javax.swing.JTextField txtinsType;
+    private javax.swing.JTextField txtptName;
     // End of variables declaration//GEN-END:variables
+
 }

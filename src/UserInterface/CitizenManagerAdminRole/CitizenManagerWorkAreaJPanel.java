@@ -9,8 +9,6 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.CitizenManagerOrganization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.PatientDoctorWorkRequest;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,23 +40,7 @@ public class CitizenManagerWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) drugRequestJTable.getModel();    
         model.setRowCount(0);
-        if (userAccount.getWorkQueue().getWorkRequestList() != null) {
-        for (WorkRequest request : organization.getWorkQueue().getWorkRequestList()){
-            if (request != null) {
-        
-            PatientDoctorWorkRequest patientDoctorWorkRequest = (PatientDoctorWorkRequest) request;
-            Object[] row = new Object[6];
-            row[0] = patientDoctorWorkRequest;
-            row[1] = patientDoctorWorkRequest.getDrugName();
-            row[2] = patientDoctorWorkRequest.getDrugQuantity();
-            row[3] = patientDoctorWorkRequest.getSender();
-            row[4] = patientDoctorWorkRequest.getReceiveEnterprise();
-            row[5] = patientDoctorWorkRequest.getPreStatus();
-            
-            model.addRow(row);
-            }
-        }  
-        }
+
     }
     /**
      * This method is called from within the constructor to initialize the form.

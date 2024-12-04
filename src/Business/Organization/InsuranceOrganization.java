@@ -5,7 +5,7 @@
  */
 package Business.Organization;
 
-import Business.Role.InsuranceRole;
+import Business.Role.InsuranceCompanyAdmin;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class InsuranceOrganization extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();
-        roles.add(new InsuranceRole());
+        roles.add(new InsuranceCompanyAdmin());
         return roles;
     }
 }

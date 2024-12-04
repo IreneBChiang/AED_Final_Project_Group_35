@@ -2,19 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UserInterface.HomePage;
+package UserInterface.PatientRole;
+
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.PatientOrganization;
+import Business.Patient.Patient;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import Business.Patient.Record;
 
 /**
  *
  * @author user
  */
-public class viewMedRecord extends javax.swing.JPanel {
+public class ViewMedRecord extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private PatientOrganization patientOrganization;
+    private EcoSystem ecoSystem;
+    private Patient patient;
+    
     /**
      * Creates new form viewMainRecord
      */
-    public viewMedRecord() {
+    public ViewMedRecord(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.patientOrganization = (PatientOrganization) patientOrganization;
+        this.enterprise = enterprise;
+        this.ecoSystem = ecoSystem;
+        this.patient= userAccount.getPatient();
+        
+        populateTable();
     }
 
     /**
@@ -76,6 +102,9 @@ public class viewMedRecord extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -84,4 +113,22 @@ public class viewMedRecord extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRecord;
     // End of variables declaration//GEN-END:variables
+
+    public void populateTable() {
+        if (patient.getRecord() == null) {
+            Record newRecord = new Record();
+            patient.setRecord(newRecord);
+        }
+        DefaultTableModel model = (DefaultTableModel) tblRecord.getModel();
+        model.setRowCount(0);
+        Record record = patient.getRecord();
+        
+        Object row[] = new Object[5];
+        row[0] = record.getDiseaseName();
+        row[1] = record.getMedicineName();
+        row[2] = record.getDemandQuantity();
+        row[3] = record.getHospitalName();
+        row[4] = record.getDoctorName();
+        model.addRow(row);
+    }
 }
