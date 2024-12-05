@@ -4,41 +4,17 @@
  */
 package ui.Patient;
 
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Insurance.Insurance;
-import Business.Organization.PatientOrganization;
-import Business.Patient.Patient;
-import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author user
  */
 public class ViewInsurance extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
-    private Enterprise enterprise;
-    private UserAccount userAccount;
-    private PatientOrganization patientOrganization;
-    private EcoSystem ecoSystem;
-    private Patient patient;
     /**
-     * Creates new form viewInsurance
+     * Creates new form ViewInsurance
      */
-    public ViewInsurance(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ViewInsurance() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.userAccount = userAccount;
-        this.patientOrganization = (PatientOrganization) patientOrganization;
-        this.enterprise = enterprise;
-        this.ecoSystem = ecoSystem;
-        this.patient= userAccount.getPatient();
-        
-        populateTable();
     }
 
     /**
@@ -53,8 +29,6 @@ public class ViewInsurance extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInsurance = new javax.swing.JTable();
-
-        setPreferredSize(new java.awt.Dimension(700, 500));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -81,34 +55,30 @@ public class ViewInsurance extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(27, 27, 27)
                 .addComponent(btnBack)
-                .addContainerGap(596, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(124, 124, 124)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(124, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addContainerGap(387, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(48, 48, 48)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -117,17 +87,4 @@ public class ViewInsurance extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInsurance;
     // End of variables declaration//GEN-END:variables
-
-    public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblInsurance.getModel();
-        model.setRowCount(0);
-        Insurance insurance = patient.getInsurance();
-        
-        Object row[] = new Object[4];
-        row[0] = insurance.getInsName();
-        row[1] = insurance.getInsType();
-        row[2] = insurance.getInsHospital();
-        row[3] = insurance.getInsCharge();
-        model.addRow(row);
-    }
 }
