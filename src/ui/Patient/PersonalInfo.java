@@ -1,84 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui.Patient;
 
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Organization.PatientOrganization;
-import Business.Patient.Patient;
-import Business.Patient.Record;
-import Business.Patient.RecordHistory;
-import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 /**
  *
- * @author dongyueli
+ * @author user
  */
 public class PersonalInfo extends javax.swing.JPanel {
-    private JPanel userProcessContainer;    
-    private EcoSystem ecoSystem;
-    private Enterprise enterprise;
-    private UserAccount userAccount;
-    private PatientOrganization patientOrganization;
-    private Patient patient;
+
     /**
-     * Creates new form ViewVitalSignsJPanel
+     * Creates new form PersonalInfo
      */
-    public PersonalInfo(JPanel userProcessContainer,UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise,EcoSystem ecoSyste) {
+    public PersonalInfo() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.ecoSystem = ecoSystem;
-        this.userAccount = userAccount;
-        this.patientOrganization = (PatientOrganization)patientOrganization;
-        this.enterprise = enterprise;
-        this.patient= userAccount.getPatient();
-
-        populateDetails();
     }
 
-    private void populateDetails() {
-        if (patient.getRecord() != null){
-            Record record = patient.getRecord();
-            txtRec1.setText(String.valueOf(record.getRespiratoryRate()));
-            txtRec2.setText(String.valueOf(record.getHeartRate()));
-            txtRec3.setText(String.valueOf(record.getSystolicBloodPressure()));
-            txtRec4.setText(String.valueOf(record.getWeightInPounds()));
-            txtRec5.setText(String.valueOf(record.getStandTime()));
-            txtRec6.setText(String.valueOf(record.getMoveTime()));
-            txtRec7.setText(String.valueOf(record.getExcerciseTime()));
-            txtRec8.setText(String.valueOf(record.getTotalTime()));
-        } else {
-            Record newRecord = new Record();
-            newRecord.setRespiratoryRate(16.5f);
-            newRecord.setHeartRate(72.0f);
-            newRecord.setSystolicBloodPressure(120.0f);
-            newRecord.setWeightInPounds(150.0f);
-            newRecord.setStandTime(60);
-            newRecord.setMoveTime(60);
-            newRecord.setExcerciseTime(60);
-            newRecord.setTotalTime();
-            patient.setRecord(newRecord);
-            
-            Record record = patient.getRecord();
-            txtRec1.setText(String.valueOf(record.getRespiratoryRate()));
-            txtRec2.setText(String.valueOf(record.getHeartRate()));
-            txtRec3.setText(String.valueOf(record.getSystolicBloodPressure()));
-            txtRec4.setText(String.valueOf(record.getWeightInPounds()));
-            txtRec5.setText(String.valueOf(record.getStandTime()));
-            txtRec6.setText(String.valueOf(record.getMoveTime()));
-            txtRec7.setText(String.valueOf(record.getExcerciseTime()));
-            txtRec8.setText(String.valueOf(record.getTotalTime()));
-        }
-        
-        
-        
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,31 +47,21 @@ public class PersonalInfo extends javax.swing.JPanel {
         txtRec8 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel16.setText("Weight in pounds");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 193, -1, -1));
 
         txtRec1.setEnabled(false);
-        add(txtRec1, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 86, 159, -1));
 
         txtRec2.setEnabled(false);
-        add(txtRec2, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 118, 159, -1));
 
         txtRec3.setEnabled(false);
-        add(txtRec3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 159, -1));
 
         txtRec4.setEnabled(false);
-        add(txtRec4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 188, 159, -1));
 
         jLabel13.setText("Respiratory rate");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 96, -1, -1));
 
         jLabel14.setText("Heart rate");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 123, -1, -1));
 
         jLabel15.setText("Systolic blood pressure");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 155, -1, -1));
 
         saveJButton.setText("Save");
         saveJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +69,6 @@ public class PersonalInfo extends javax.swing.JPanel {
                 saveJButtonActionPerformed(evt);
             }
         });
-        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 277, -1, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +76,6 @@ public class PersonalInfo extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 321, -1, -1));
 
         updateJButton.setText("Update");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -157,16 +83,12 @@ public class PersonalInfo extends javax.swing.JPanel {
                 updateJButtonActionPerformed(evt);
             }
         });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 277, -1, -1));
 
         jLabel9.setText("Move Time (mins)");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 129, -1, -1));
 
         jLabel10.setText("Excercise Time (mins)");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 168, -1, 26));
 
         jLabel11.setText("Total Time (mins)");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 211, -1, -1));
 
         txtRec5.setEnabled(false);
         txtRec5.addActionListener(new java.awt.event.ActionListener() {
@@ -174,119 +96,226 @@ public class PersonalInfo extends javax.swing.JPanel {
                 txtRec5ActionPerformed(evt);
             }
         });
-        add(txtRec5, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 80, 162, -1));
 
         txtRec6.setEnabled(false);
-        add(txtRec6, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 124, 159, -1));
 
         jLabel17.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 51, 204));
         jLabel17.setText("View Record Details");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 28, 269, -1));
 
         txtRec7.setEnabled(false);
-        add(txtRec7, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 168, 159, -1));
 
         txtRec8.setEditable(false);
         txtRec8.setEnabled(false);
-        add(txtRec8, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 206, 159, -1));
 
         jLabel8.setText("Stand Time (mins)");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 90, 122, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(213, 213, 213)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(74, 74, 74)
+                            .addComponent(txtRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtRec5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(105, 105, 105)
+                            .addComponent(txtRec2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(txtRec6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(36, 36, 36)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtRec3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRec4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(42, 42, 42)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(26, 26, 26)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtRec7, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRec8, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(224, 224, 224)
+                            .addComponent(saveJButton)
+                            .addGap(91, 91, 91)
+                            .addComponent(updateJButton))
+                        .addComponent(backJButton))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel17)
+                    .addGap(20, 20, 20)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addComponent(jLabel13))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(txtRec1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel8))
+                        .addComponent(txtRec5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(6, 6, 6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel14))
+                        .addComponent(txtRec2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(jLabel9))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(txtRec6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(4, 4, 4)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel15)
+                            .addGap(22, 22, 22)
+                            .addComponent(jLabel16))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtRec3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(16, 16, 16)
+                            .addComponent(txtRec4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(17, 17, 17)
+                            .addComponent(jLabel11))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(txtRec7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(16, 16, 16)
+                            .addComponent(txtRec8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(49, 49, 49)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(saveJButton)
+                        .addComponent(updateJButton))
+                    .addGap(21, 21, 21)
+                    .addComponent(backJButton)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJButtonActionPerformed
+        // TODO add your handling code here:
+//        txtRec8.setEnabled(false);
+//        if((txtRec1.getText().length()==0)||
+//            (txtRec2.getText().length()==0)||
+//            (txtRec3.getText().length()==0)||
+//            (txtRec4.getText().length()==0)||
+//            (txtRec5.getText().length()==0)||
+//            (txtRec6.getText().length()==0)||
+//            (txtRec7.getText().length()==0))
+//        {
+//            JOptionPane.showMessageDialog(null, "Alert! Inputs can not be empty! ", "Warning", JOptionPane.WARNING_MESSAGE);
+//        } else if((txtRec1.getText().length() != 0) ||
+//            (txtRec2.getText().length()!=0) ||
+//            (txtRec3.getText().length() != 0)||
+//            (txtRec4.getText().length() !=0)||
+//            (txtRec5.getText().length() !=0)||
+//            (txtRec6.getText().length() !=0)||
+//            (txtRec7.getText().length() !=0)) {
+//            try{
+//
+//                //                String patientName = userAccountnameJTextField.getText();
+//                float respiratoryRate = Float.parseFloat(txtRec1.getText());
+//                float heartRate = Float.parseFloat(txtRec2.getText());
+//                float systolicBloodPressure = Float.parseFloat(txtRec3.getText());
+//                float weightInPounds = Float.parseFloat(txtRec4.getText());
+//                int standTime = Integer.parseInt(txtRec5.getText());
+//                int moveTime = Integer.parseInt(txtRec6.getText());
+//                int excerciseTime = Integer.parseInt(txtRec7.getText());
+//                //int totalTime = Integer.parseInt(txtRec8.getText());
+//
+//                //Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
+//                //userAccount.setPatient(patient);
+//                //patient.setPatientName(userAccount.getName());
+//                Record record = patient.getRecord();
+//                record.setRespiratoryRate(respiratoryRate);
+//                record.setHeartRate(heartRate);
+//                record.setSystolicBloodPressure(systolicBloodPressure);
+//                record.setWeightInPounds(weightInPounds);
+//                record.setStandTime(standTime);
+//                record.setMoveTime(moveTime);
+//                record.setExcerciseTime(excerciseTime);
+//                record.setTotalTime();
+//                txtRec8.setText(String.valueOf(record.getTotalTime()));
+//
+//                JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
+//                //resetFields();
+//            }catch(Exception e){
+//
+//                JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
+//                saveJButton.setEnabled(false);
+//                updateJButton.setEnabled(true);
+//            }
+//        }
+    }//GEN-LAST:event_saveJButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        // TODO add your handling code here:
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
+        // TODO add your handling code here:
+//        Record record = patient.getRecord();
+//        txtRec1.setText(String.valueOf(record.getRespiratoryRate()));
+//        txtRec2.setText(String.valueOf(record.getHeartRate()));
+//        txtRec3.setText(String.valueOf(record.getSystolicBloodPressure()));
+//        txtRec4.setText(String.valueOf(record.getWeightInPounds()));
+//        txtRec5.setText(String.valueOf(record.getStandTime()));
+//        txtRec6.setText(String.valueOf(record.getMoveTime()));
+//        txtRec7.setText(String.valueOf(record.getExcerciseTime()));
+//        txtRec8.setText(String.valueOf(record.getTotalTime()));
+//
+//        txtRec1.setEnabled(true);
+//        txtRec2.setEnabled(true);
+//        txtRec3.setEnabled(true);
+//        txtRec4.setEnabled(true);
+//        txtRec5.setEnabled(true);
+//        txtRec6.setEnabled(true);
+//        txtRec7.setEnabled(true);
+//        txtRec8.setEnabled(true);
+
+    }//GEN-LAST:event_updateJButtonActionPerformed
 
     private void txtRec5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRec5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRec5ActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
-
-    private void saveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJButtonActionPerformed
-        // TODO add your handling code here:
-        txtRec8.setEnabled(false);
-        if((txtRec1.getText().length()==0)||
-                (txtRec2.getText().length()==0)||
-                (txtRec3.getText().length()==0)||
-                (txtRec4.getText().length()==0)||
-                (txtRec5.getText().length()==0)||
-                (txtRec6.getText().length()==0)||
-                (txtRec7.getText().length()==0))
-        {
-            JOptionPane.showMessageDialog(null, "Alert! Inputs can not be empty! ", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if((txtRec1.getText().length() != 0) ||
-             (txtRec2.getText().length()!=0) ||
-             (txtRec3.getText().length() != 0)||
-             (txtRec4.getText().length() !=0)||
-             (txtRec5.getText().length() !=0)||
-             (txtRec6.getText().length() !=0)||
-             (txtRec7.getText().length() !=0)) {
-            try{
-
-//                String patientName = userAccountnameJTextField.getText();
-                float respiratoryRate = Float.parseFloat(txtRec1.getText());
-                float heartRate = Float.parseFloat(txtRec2.getText());
-                float systolicBloodPressure = Float.parseFloat(txtRec3.getText());
-                float weightInPounds = Float.parseFloat(txtRec4.getText());
-                int standTime = Integer.parseInt(txtRec5.getText());
-                int moveTime = Integer.parseInt(txtRec6.getText());
-                int excerciseTime = Integer.parseInt(txtRec7.getText());
-                //int totalTime = Integer.parseInt(txtRec8.getText());
-                
-                
-                //Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
-                //userAccount.setPatient(patient);
-                //patient.setPatientName(userAccount.getName());
-                Record record = patient.getRecord();
-                record.setRespiratoryRate(respiratoryRate);
-                record.setHeartRate(heartRate);
-                record.setSystolicBloodPressure(systolicBloodPressure);
-                record.setWeightInPounds(weightInPounds);
-                record.setStandTime(standTime);
-                record.setMoveTime(moveTime);
-                record.setExcerciseTime(excerciseTime);
-                record.setTotalTime();
-                txtRec8.setText(String.valueOf(record.getTotalTime()));
-
-
-
-                JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
-                //resetFields();
-            }catch(Exception e){
-
-                JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
-                saveJButton.setEnabled(false);
-                updateJButton.setEnabled(true);
-            }
-        }
-    }//GEN-LAST:event_saveJButtonActionPerformed
-
-    private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
-        // TODO add your handling code here:
-        Record record = patient.getRecord();
-        txtRec1.setText(String.valueOf(record.getRespiratoryRate()));
-        txtRec2.setText(String.valueOf(record.getHeartRate()));
-        txtRec3.setText(String.valueOf(record.getSystolicBloodPressure()));
-        txtRec4.setText(String.valueOf(record.getWeightInPounds()));
-        txtRec5.setText(String.valueOf(record.getStandTime()));
-        txtRec6.setText(String.valueOf(record.getMoveTime()));
-        txtRec7.setText(String.valueOf(record.getExcerciseTime()));
-        txtRec8.setText(String.valueOf(record.getTotalTime()));
-        
-        txtRec1.setEnabled(true);
-        txtRec2.setEnabled(true);
-        txtRec3.setEnabled(true);
-        txtRec4.setEnabled(true);
-        txtRec5.setEnabled(true);
-        txtRec6.setEnabled(true);
-        txtRec7.setEnabled(true);
-        txtRec8.setEnabled(true);
-        
-    }//GEN-LAST:event_updateJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

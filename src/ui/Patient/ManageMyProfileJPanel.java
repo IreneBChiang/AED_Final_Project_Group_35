@@ -1,54 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui.Patient;
 
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Organization.PatientOrganization;
-import Business.Patient.Patient;
-import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 /**
  *
- * @author dongyueli
+ * @author user
  */
 public class ManageMyProfileJPanel extends javax.swing.JPanel {
-    private JPanel userProcessContainer;    
-    private EcoSystem ecoSystem;
-    private Enterprise enterprise;
-    private UserAccount userAccount;
-    private PatientOrganization patientOrganization;
-    private Patient patient;
+
     /**
-     * Creates new form ViewMyProfileJPanel
+     * Creates new form ManageMyProfileJPanel
      */
-    public ManageMyProfileJPanel(JPanel userProcessContainer,UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise,EcoSystem ecoSyste) {
+    public ManageMyProfileJPanel() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.ecoSystem = ecoSystem;
-        this.userAccount = userAccount;
-        this.patientOrganization = (PatientOrganization)patientOrganization;
-        this.enterprise = enterprise;
-        this.patient=userAccount.getPatient();
-        
-        nameJTextField.setText(patient.getPatientName());
-        patientIDJTextField.setText(String.valueOf(patient.getPatientID()));
-        ageJTextField.setText(String.valueOf(patient.getAge()));
-        streetAddressJTextField.setText(patient.getStreetAddress());
-        cityJTextField.setText(patient.getTown());
-        zipCodeJTextField.setText(String.valueOf(patient.getZipCode()));
-        emailJTextField.setText(patient.getEmailAddress());
-        areaCodeJTextField.setText(String.valueOf(patient.getAreaCode()));
-        numberJTextField.setText(String.valueOf(patient.getPhoneNumber()));
-        
-        
-        
     }
 
     /**
@@ -72,7 +38,6 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         areaCodeJTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         patientIDJTextField = new javax.swing.JTextField();
-        updateJButton = new javax.swing.JButton();
         streetAddressJTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -81,33 +46,26 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         saveJButton = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
+        updateJButton = new javax.swing.JButton();
         btnIntegrate = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(255, 204, 204));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cityJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cityJTextFieldFocusLost(evt);
             }
         });
-        add(cityJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 236, 183, -1));
 
         zipCodeJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 zipCodeJTextFieldFocusLost(evt);
             }
         });
-        add(zipCodeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 274, 183, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 204));
         jLabel9.setText("Manage My Profile");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 229, -1));
 
         jLabel1.setText("Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 79, -1, -1));
 
         nameJTextField.setEditable(false);
         nameJTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -115,41 +73,34 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
                 nameJTextFieldActionPerformed(evt);
             }
         });
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 74, 183, -1));
 
         jLabel2.setText("Age");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 160, -1, -1));
 
         ageJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageJTextFieldActionPerformed(evt);
             }
         });
-        add(ageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 155, 183, -1));
 
         numberJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 numberJTextFieldFocusLost(evt);
             }
         });
-        add(numberJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 362, 106, -1));
 
         emailJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 emailJTextFieldFocusLost(evt);
             }
         });
-        add(emailJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 318, 182, -1));
 
         areaCodeJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 areaCodeJTextFieldFocusLost(evt);
             }
         });
-        add(areaCodeJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 362, 50, -1));
 
         jLabel4.setText("Patient ID");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 116, -1, -1));
 
         patientIDJTextField.setEditable(false);
         patientIDJTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -157,40 +108,24 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
                 patientIDJTextFieldActionPerformed(evt);
             }
         });
-        add(patientIDJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 111, 183, -1));
-
-        updateJButton.setText("Update");
-        updateJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateJButtonActionPerformed(evt);
-            }
-        });
-        add(updateJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
 
         streetAddressJTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 streetAddressJTextFieldFocusLost(evt);
             }
         });
-        add(streetAddressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 198, 183, -1));
 
         jLabel6.setText("Phone Number");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 367, -1, -1));
 
         jLabel5.setText("Email Address");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 323, -1, -1));
 
         jLabel3.setText("Zip Code");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 279, -1, -1));
 
         jLabel7.setText("City/Town");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 241, -1, -1));
 
         jLabel8.setText("Street Address");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 203, -1, -1));
 
         jLabel10.setText("-");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 367, -1, -1));
 
         saveJButton.setText("Save");
         saveJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -198,15 +133,13 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
                 saveJButtonActionPerformed(evt);
             }
         });
-        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 460, -1, -1));
 
-        backJButton.setText("<<Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        updateJButton.setText("Update");
+        updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                updateJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, -1, -1));
 
         btnIntegrate.setText("Integrate");
         btnIntegrate.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +147,136 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
                 btnIntegrateActionPerformed(evt);
             }
         });
-        add(btnIntegrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(58, 58, 58)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel1)
+                            .addGap(78, 78, 78)
+                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(58, 58, 58)
+                            .addComponent(patientIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel2)
+                            .addGap(89, 89, 89)
+                            .addComponent(ageJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(streetAddressJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(56, 56, 56)
+                            .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(61, 61, 61)
+                            .addComponent(zipCodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel5)
+                            .addGap(33, 33, 33)
+                            .addComponent(emailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addComponent(areaCodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(4, 4, 4)
+                            .addComponent(jLabel10)
+                            .addGap(15, 15, 15)
+                            .addComponent(numberJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(saveJButton)
+                            .addGap(33, 33, 33)
+                            .addComponent(updateJButton)
+                            .addGap(28, 28, 28)
+                            .addComponent(btnIntegrate, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 463, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel9)
+                    .addGap(22, 22, 22)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel1))
+                        .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(15, 15, 15)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel4))
+                        .addComponent(patientIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(22, 22, 22)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel2))
+                        .addComponent(ageJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(21, 21, 21)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel8))
+                        .addComponent(streetAddressJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(16, 16, 16)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel7))
+                        .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(16, 16, 16)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel3))
+                        .addComponent(zipCodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(22, 22, 22)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel5))
+                        .addComponent(emailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(22, 22, 22)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(areaCodeJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numberJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel10))))
+                    .addGap(76, 76, 76)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(saveJButton)
+                        .addComponent(updateJButton)
+                        .addComponent(btnIntegrate))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cityJTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cityJTextFieldFocusLost
@@ -253,119 +315,96 @@ public class ManageMyProfileJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_streetAddressJTextFieldFocusLost
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
-
-    private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
-        // TODO add your handling code here:
-        
-        nameJTextField.setText(patient.getPatientName());
-        patientIDJTextField.setText(String.valueOf(patient.getPatientID()));
-        ageJTextField.setText(String.valueOf(patient.getAge()));
-        streetAddressJTextField.setText(patient.getStreetAddress());
-        cityJTextField.setText(patient.getTown());
-        zipCodeJTextField.setText(String.valueOf(patient.getZipCode()));
-        emailJTextField.setText(patient.getEmailAddress());
-        areaCodeJTextField.setText(String.valueOf(patient.getAreaCode()));
-        numberJTextField.setText(String.valueOf(patient.getPhoneNumber()));
-        
-        
-        nameJTextField.setEnabled(false);
-        patientIDJTextField.setEnabled(false);
-        ageJTextField.setEnabled(true);
-        streetAddressJTextField.setEnabled(true);      
-        cityJTextField.setEnabled(true);
-        zipCodeJTextField.setEnabled(true);
-        emailJTextField.setEnabled(true);
-        areaCodeJTextField.setEnabled(true);
-        numberJTextField.setEnabled(true);
-        saveJButton.setEnabled(true);
-        updateJButton.setEnabled(false);
-    }//GEN-LAST:event_updateJButtonActionPerformed
-
     private void saveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJButtonActionPerformed
         // TODO add your handling code here:
-        if((ageJTextField.getText().length()==0)||
-                (streetAddressJTextField.getText().length()==0)||
-                (cityJTextField.getText().length()==0)||
-                (zipCodeJTextField.getText().length()==0)||
-                (emailJTextField.getText().length()==0)||
-                (areaCodeJTextField.getText().length()==0)||
-                (numberJTextField.getText().length()==0))
-        {
-            JOptionPane.showMessageDialog(null, "Alert! Inputs can not be empty! ", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if((ageJTextField.getText().length() != 0) ||
-             (streetAddressJTextField.getText().length()!=0) ||
-            (cityJTextField.getText().length() != 0)||
-                (zipCodeJTextField.getText().length() !=0)||
-                (emailJTextField.getText().length() !=0)||
-                (areaCodeJTextField.getText().length() !=0)||
-                (numberJTextField.getText().length() !=0)) {
-            try{
+//        if((ageJTextField.getText().length()==0)||
+//            (streetAddressJTextField.getText().length()==0)||
+//            (cityJTextField.getText().length()==0)||
+//            (zipCodeJTextField.getText().length()==0)||
+//            (emailJTextField.getText().length()==0)||
+//            (areaCodeJTextField.getText().length()==0)||
+//            (numberJTextField.getText().length()==0))
+//        {
+//            JOptionPane.showMessageDialog(null, "Alert! Inputs can not be empty! ", "Warning", JOptionPane.WARNING_MESSAGE);
+//        } else if((ageJTextField.getText().length() != 0) ||
+//            (streetAddressJTextField.getText().length()!=0) ||
+//            (cityJTextField.getText().length() != 0)||
+//            (zipCodeJTextField.getText().length() !=0)||
+//            (emailJTextField.getText().length() !=0)||
+//            (areaCodeJTextField.getText().length() !=0)||
+//            (numberJTextField.getText().length() !=0)) {
+//            try{
+//
+//                //                String patientName = userAccountnameJTextField.getText();
+//                int age = Integer.parseInt(ageJTextField.getText());
+//                String streetAddress = streetAddressJTextField.getText();
+//                String town = cityJTextField.getText();
+//                int zipCode = Integer.parseInt(zipCodeJTextField.getText());
+//                String emailAddress = emailJTextField.getText();
+//                int areaCode = Integer.parseInt(areaCodeJTextField.getText());
+//                int phoneNumber = Integer.parseInt(numberJTextField.getText());
+                //                String doc = myDoctorJTextField.getText();
 
-//                String patientName = userAccountnameJTextField.getText();
-                int age = Integer.parseInt(ageJTextField.getText());
-                String streetAddress = streetAddressJTextField.getText();
-                String town = cityJTextField.getText();
-                int zipCode = Integer.parseInt(zipCodeJTextField.getText());
-                String emailAddress = emailJTextField.getText();
-                int areaCode = Integer.parseInt(areaCodeJTextField.getText());
-                int phoneNumber = Integer.parseInt(numberJTextField.getText());
-//                String doc = myDoctorJTextField.getText();
-                
-                
                 //Patient patient = patientOrganization.getPatientDirectory().createPtient(userAccount.getName());
                 //userAccount.setPatient(patient);
                 //patient.setPatientName(userAccount.getName());
-                patient.setAge(age);
-                patient.setAreaCode(areaCode);
-                patient.setEmailAddress(emailAddress);
-                patient.setPhoneNumber(phoneNumber);
-                patient.setStreetAddress(streetAddress);
-                patient.setTown(town);
-                patient.setZipCode(zipCode);
-
-                JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
-                //resetFields();
-            }catch(Exception e){
-
-                JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
-                saveJButton.setEnabled(false);
-                updateJButton.setEnabled(true);
-            }
-        }
+//                patient.setAge(age);
+//                patient.setAreaCode(areaCode);
+//                patient.setEmailAddress(emailAddress);
+//                patient.setPhoneNumber(phoneNumber);
+//                patient.setStreetAddress(streetAddress);
+//                patient.setTown(town);
+//                patient.setZipCode(zipCode);
+//
+//                JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
+//                //resetFields();
+//            }catch(Exception e){
+//
+//                JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
+//                saveJButton.setEnabled(false);
+//                updateJButton.setEnabled(true);
+//            }
+//        }
     }//GEN-LAST:event_saveJButtonActionPerformed
+
+    private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
+        // TODO add your handling code here:
+
+//        nameJTextField.setText(patient.getPatientName());
+//        patientIDJTextField.setText(String.valueOf(patient.getPatientID()));
+//        ageJTextField.setText(String.valueOf(patient.getAge()));
+//        streetAddressJTextField.setText(patient.getStreetAddress());
+//        cityJTextField.setText(patient.getTown());
+//        zipCodeJTextField.setText(String.valueOf(patient.getZipCode()));
+//        emailJTextField.setText(patient.getEmailAddress());
+//        areaCodeJTextField.setText(String.valueOf(patient.getAreaCode()));
+//        numberJTextField.setText(String.valueOf(patient.getPhoneNumber()));
+//
+//        nameJTextField.setEnabled(false);
+//        patientIDJTextField.setEnabled(false);
+//        ageJTextField.setEnabled(true);
+//        streetAddressJTextField.setEnabled(true);
+//        cityJTextField.setEnabled(true);
+//        zipCodeJTextField.setEnabled(true);
+//        emailJTextField.setEnabled(true);
+//        areaCodeJTextField.setEnabled(true);
+//        numberJTextField.setEnabled(true);
+//        saveJButton.setEnabled(true);
+//        updateJButton.setEnabled(false);
+    }//GEN-LAST:event_updateJButtonActionPerformed
 
     private void btnIntegrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntegrateActionPerformed
         // TODO add your handling code here:
-        PersonalInfo panel = new PersonalInfo(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
-        userProcessContainer.add("ViewInsurance", panel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+//        PersonalInfo panel = new PersonalInfo(userProcessContainer,userAccount,patientOrganization,enterprise,ecoSystem);
+//        userProcessContainer.add("ViewInsurance", panel);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnIntegrateActionPerformed
 
-    public void resetFields(){
-        
-        ageJTextField.setText("");
-        nameJTextField.setText("");
-        streetAddressJTextField.setText("");
-        cityJTextField.setText("");
-        zipCodeJTextField.setText("");
-        emailJTextField.setText("");
-        areaCodeJTextField.setText("");
-        numberJTextField.setText("");
-       
-     
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageJTextField;
     private javax.swing.JTextField areaCodeJTextField;
-    private javax.swing.JButton backJButton;
     private javax.swing.JButton btnIntegrate;
     private javax.swing.JTextField cityJTextField;
     private javax.swing.JTextField emailJTextField;

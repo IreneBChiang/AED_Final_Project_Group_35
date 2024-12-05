@@ -4,43 +4,17 @@
  */
 package ui.Patient;
 
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Organization.PatientOrganization;
-import Business.Patient.Patient;
-import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import java.util.ArrayList;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-import Business.Patient.Record;
-
 /**
  *
  * @author user
  */
 public class ViewMedRecord extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
-    private Enterprise enterprise;
-    private UserAccount userAccount;
-    private PatientOrganization patientOrganization;
-    private EcoSystem ecoSystem;
-    private Patient patient;
-    
     /**
-     * Creates new form viewMainRecord
+     * Creates new form ViewMedRecord
      */
-    public ViewMedRecord(JPanel userProcessContainer, UserAccount userAccount, PatientOrganization patientOrganization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ViewMedRecord() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.userAccount = userAccount;
-        this.patientOrganization = (PatientOrganization) patientOrganization;
-        this.enterprise = enterprise;
-        this.ecoSystem = ecoSystem;
-        this.patient= userAccount.getPatient();
-        
-        populateTable();
     }
 
     /**
@@ -55,8 +29,6 @@ public class ViewMedRecord extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRecord = new javax.swing.JTable();
-
-        setPreferredSize(new java.awt.Dimension(700, 500));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +59,7 @@ public class ViewMedRecord extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,15 +68,15 @@ public class ViewMedRecord extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -113,22 +85,4 @@ public class ViewMedRecord extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRecord;
     // End of variables declaration//GEN-END:variables
-
-    public void populateTable() {
-        if (patient.getRecord() == null) {
-            Record newRecord = new Record();
-            patient.setRecord(newRecord);
-        }
-        DefaultTableModel model = (DefaultTableModel) tblRecord.getModel();
-        model.setRowCount(0);
-        Record record = patient.getRecord();
-        
-        Object row[] = new Object[5];
-        row[0] = record.getDiseaseName();
-        row[1] = record.getMedicineName();
-        row[2] = record.getDemandQuantity();
-        row[3] = record.getHospitalName();
-        row[4] = record.getDoctorName();
-        model.addRow(row);
-    }
 }
