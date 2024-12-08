@@ -460,45 +460,72 @@ public class ConfigureASystem {
         
         if (org8 instanceof HospitalOrganization) {
             HospitalOrganization hospitalOrganization = (HospitalOrganization) org8;
+            Employee hmemployee1 = e1.getEmployeeDirectory().createEmployee("manager1");
             UserAccount manager1 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager1", "manager1", new HospitalManager());
             manager1.setName("Manager One");
             manager1.setDepartment("Cancer");
+            manager1.setEmployee(hmemployee1);
 
+            
+            Employee hmemployee2 = e1.getEmployeeDirectory().createEmployee("manager2");
             UserAccount manager2 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager2", "manager2", new HospitalManager());
             manager2.setName("Manager Two");
             manager2.setDepartment("Surgery");
+            manager2.setEmployee(hmemployee2);
             
+            
+            Employee hmemployee3 = e1.getEmployeeDirectory().createEmployee("manager3");
             UserAccount manager3 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager3", "manager3", new HospitalManager());
             manager3.setName("Manager Three");
             manager3.setDepartment("Oncology");
+            manager3.setEmployee(hmemployee3);
             
+            
+            Employee hmemployee4 = e1.getEmployeeDirectory().createEmployee("manager4");
             UserAccount manager4 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager4", "manager4", new HospitalManager());
             manager4.setName("Manager Four");
             manager4.setDepartment("Urology");
+            manager4.setEmployee(hmemployee4);
             
+            
+            Employee hmemployee5 = e1.getEmployeeDirectory().createEmployee("manager5");
             UserAccount manager5 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager5", "manager5", new HospitalManager());
             manager5.setName("Manager Five");
             manager5.setDepartment("Psychiatry");
+            manager5.setEmployee(hmemployee5);
             
+            Employee hmemployee6 = e1.getEmployeeDirectory().createEmployee("manager6");
             UserAccount manager6 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager6", "manager6", new HospitalManager());
             manager6.setName("Manager Six");
             manager6.setDepartment("Cardiology");
+            manager6.setEmployee(hmemployee6);
 
+            Employee hmemployee7 = e1.getEmployeeDirectory().createEmployee("manager7");
             UserAccount manager7 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager7", "manager7", new HospitalManager());
             manager7.setName("Manager Seven");
             manager7.setDepartment("Neurology");
+            manager7.setEmployee(hmemployee7);
 
+            
+            Employee hmemployee8 = e1.getEmployeeDirectory().createEmployee("manager8");
             UserAccount manager8 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager8", "manager8", new HospitalManager());
             manager8.setName("Manager Eight");
             manager8.setDepartment("Orthopedics");
+            manager8.setEmployee(hmemployee8);
 
+            
+            Employee hmemployee9 = e1.getEmployeeDirectory().createEmployee("manager9");
             UserAccount manager9 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager9", "manager9", new HospitalManager());
             manager9.setName("Manager Nine");
             manager9.setDepartment("Dermatology");
+            manager9.setEmployee(hmemployee9);
 
+            
+            Employee hmemployee10 = e1.getEmployeeDirectory().createEmployee("manager10");
             UserAccount manager10 = hospitalOrganization.getUserAccountDirectory().createHospitalManagerAccount("manager10", "manager10", new HospitalManager());
             manager10.setName("Manager Ten");
             manager10.setDepartment("Pediatrics");
+            manager10.setEmployee(hmemployee10);
         }
         
         // under Insurance enterprise
@@ -515,20 +542,30 @@ public class ConfigureASystem {
         
         if (org4 instanceof InsuranceOrganization) {
             InsuranceOrganization insuranceOrganization = (InsuranceOrganization) org4;
+            Employee agentEmployee1 = org4.getEmployeeDirectory().createEmployee("agent1");
             UserAccount agent1 = insuranceOrganization.getUserAccountDirectory().createAgentAccount("agent1", "agent1", new InsuranceAgent());
             agent1.setName("Agent One");
+            agent1.setEmployee(agentEmployee1);
 
+            Employee agentEmployee2 = org4.getEmployeeDirectory().createEmployee("agent2");
             UserAccount agent2 = insuranceOrganization.getUserAccountDirectory().createAgentAccount("agent2", "agent2", new InsuranceAgent());
             agent2.setName("Agent Two");
+            agent2.setEmployee(agentEmployee2);
             
+            Employee agentEmployee3 = org4.getEmployeeDirectory().createEmployee("agent3");
             UserAccount agent3 = insuranceOrganization.getUserAccountDirectory().createAgentAccount("agent3", "agent3", new InsuranceAgent());
             agent3.setName("Agent Three");
+            agent3.setEmployee(agentEmployee3);
             
+            Employee agentEmployee4 = org4.getEmployeeDirectory().createEmployee("agent4");
             UserAccount agent4 = insuranceOrganization.getUserAccountDirectory().createAgentAccount("agent4", "agent4", new InsuranceAgent());
             agent4.setName("Agent Four");
+            agent4.setEmployee(agentEmployee4);
             
+            Employee agentEmployee5 = org4.getEmployeeDirectory().createEmployee("agent5");
             UserAccount agent5 = insuranceOrganization.getUserAccountDirectory().createAgentAccount("agent5", "agent5", new InsuranceAgent());
             agent5.setName("Agent Five");
+            agent5.setEmployee(agentEmployee5);
         }
         
         // under Government enterprise
