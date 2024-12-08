@@ -4,7 +4,9 @@
  */
 package Business.Organization;
 
+import Business.Role.HospitalAdminRole;
 import Business.Role.HospitalManager;
+import Business.Role.PatientRole;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
@@ -75,6 +77,7 @@ public class HospitalOrganization extends Organization{
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new HospitalManager());
+        roles.add(new HospitalAdminRole());
         return roles;
     }
 }
