@@ -127,6 +127,7 @@ public class PersonalInfo extends javax.swing.JPanel {
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         saveJButton.setText("Save");
+        saveJButton.setEnabled(false);
         saveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveJButtonActionPerformed(evt);
@@ -235,13 +236,23 @@ public class PersonalInfo extends javax.swing.JPanel {
                 record.setTotalTime();
                 txtRec8.setText(String.valueOf(record.getTotalTime()));
 
-                JOptionPane.showMessageDialog(null, "Create Patient Information Successfully!", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Save Patient Information Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 //resetFields();
+                
+                txtRec1.setEnabled(false);
+                txtRec2.setEnabled(false);
+                txtRec3.setEnabled(false);
+                txtRec4.setEnabled(false);
+                txtRec5.setEnabled(false);
+                txtRec6.setEnabled(false);
+                txtRec7.setEnabled(false);
+                txtRec8.setEnabled(false);
+                updateJButton.setEnabled(true);
+                saveJButton.setEnabled(false);
+      
             }catch(Exception e){
 
                 JOptionPane.showMessageDialog(null, "Alert! Please enter appropriate values! ", "Warning", JOptionPane.WARNING_MESSAGE);
-                saveJButton.setEnabled(false);
-                updateJButton.setEnabled(true);
             }
         }
     }//GEN-LAST:event_saveJButtonActionPerformed
@@ -267,6 +278,9 @@ public class PersonalInfo extends javax.swing.JPanel {
         txtRec7.setEnabled(true);
         txtRec8.setEnabled(true);
         
+        updateJButton.setEnabled(false);
+        saveJButton.setEnabled(true);
+
     }//GEN-LAST:event_updateJButtonActionPerformed
 
 
